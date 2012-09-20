@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/eguzki/data/workstreams/CDN/project/cdn-awa/build/src/libs/AwaLib/CMakeFiles/AwaLib.dir'
+let g:netrw_dirhist_2='/home/eguzki/data/workstreams/CDN/project/cdn-core'
+let g:netrw_dirhist_3='/home/eguzki/data/workstreams/CDN/Innovation/DSA/Jaguar_vs_Ep_vs_Varnish'
