@@ -119,7 +119,7 @@ vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :vimgrep // **/*<left><left><left><left><left><left><left>
+map <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 
 function! CmdLine(str)
@@ -127,7 +127,6 @@ function! CmdLine(str)
     emenu Foo.Bar
     unmenu Foo
 endfunction
-
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
@@ -140,7 +139,9 @@ function! VisualSearch(direction) range
     if a:direction == 'b'
         execute "normal ?" . l:pattern . "^M"
     elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*')
+        " :vim[grep][!] /{pattern}/[g][j] {file} ...
+        "call CmdLine("vimgrep " . '/'. l:pattern . '/j' . ' **/*')
+        execute "grep -srn --binary-files=without-match --exclude=tags --exclude-dir=.hg --exclude-dir=.git . -e " . l:pattern . " "
     elseif a:direction == 'f'
         execute "normal /" . l:pattern . "^M"
     endif
