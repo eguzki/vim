@@ -127,6 +127,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
+Bundle 'wincent/Command-T'
 Bundle 'Valloric/ListToggle'
 
 
@@ -182,19 +183,9 @@ let Tlist_WinWidth=30
 let Tlist_Exit_OnlyWindow = 1
 map <F4> :TlistToggle<cr>
 
-" Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
-"inoremap <Nul> <C-x><C-o>
-inoremap <expr> j   pumvisible()?"\<C-N>":"j"
-inoremap <expr> k   pumvisible()?"\<C-P>":"k"
-
-
 " build tags of your own project with Ctrl-F12
 map <C-F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q --language-force=C++ --exclude=tags .<CR>
 map <C-F11> :!ctags -R --fields=+iaS --extra=+q .<CR>
-
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
 
 """"""""""""""""""""""""""""""
 " => Command-T (needs to be compiled with ruby)
@@ -211,15 +202,6 @@ noremap <leader>y :CommandTFlush<cr>
 " => Java
 """"""""""""""""""""""""""""""
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-
-""""""""""""""""""""""""""""""
-" => Json
-""""""""""""""""""""""""""""""
-autocmd BufRead *.json set filetype=json
-au! Syntax json source ~/.vim/syntax/json.vim
-autocmd FileType json set equalprg=json_reformat
-autocmd FileType json set makeprg=jsonval\ %
-autocmd FileType json set errorformat=%E%f:\ %m\ at\ line\ %l,%-G%.%#
 
 """"""""""""""""""""""""""""""
 " => Syntastic
