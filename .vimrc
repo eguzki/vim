@@ -2,7 +2,7 @@
 " Maintainer: Eguzki Astiz Lezaun
 "
 "
-" Version: 1.2 - 5th Dec 2012 14:40:30
+" Version: 1.3 - 11th May 2013 14:40:30
 "
 " Sections:
 "    -> General
