@@ -11,15 +11,13 @@
 "    -> Text, tab and indent related
 "    -> Visual mode related
 "
-"    -> Minibuffer plugin
-"    -> TagList
-"    -> clang
-"    -> Command-T
-"    -> Java
-"    -> Json
-"    -> Misc
+" Plugins_Included: 
 "
-" Plugins_Included: (not completed)
+"     > Vundle - https://github.com/gmarik/vundle
+"           Vundle is short for Vim bundle and is a Vim plugin manager.
+"
+"     > EasyMotion - https://github.com/Lokaltog/vim-easymotion
+"           EasyMotion provides a much simpler way to use some motions in vim.
 "
 "     > minibufexpl.vim - http://www.vim.org/scripts/script.php?script_id=159
 "           Makes it easy to get an overview of buffers:
@@ -29,17 +27,19 @@
 "           Makes it easy to work with surrounding text:
 "            info -> :help surround
 " 
-"      > snipMate.vim - http://www.vim.org/scripts/script.php?script_id=2540
-"           Snippets for many languages (similar to TextMate's):
-"            info -> :help snipMate
-" 
-"      > clang.vim - http://www.vim.org/scripts/script.php?script_id=3302
-"           Autocomplete C/C++ code
+"      > YouCompleteMe - https://github.com/Valloric/YouCompleteMe
+"           Autocomplete Python/Java/C/C++ code
+"
+"      > Syntastic - https://github.com/scrooloose/syntastic
+"           Syntastic is a syntax checking plugin that runs files through
+"           external syntax checkers and displays any resulting errors to the
+"           user
+"           info -> :help syntastic-checker-options
 "
 "      > a.vim - http://www.vim.org/scripts/script.php?script_id=31
 "           Alternate Files quickly (.c --> .h etc) ]
 "
-"      > Command-T -http://www.vim.org/scripts/script.php?script_id=3025 
+"      > Command-T - https://github.com/wincent/Command-T
 "            Extremely fast, intuitive mechanism for opening files with a minimal number of keystrokes
 "            info -> :help command-t 
 "
@@ -47,12 +47,14 @@
 "            Overview of the structure of source code files and allows you to efficiently browse through source code files
 "            info -> :help taglist
 "
+"      > ListToggle - https://github.com/Valloric/ListToggle
+"           A vim plugin for toggling the display of the quickfix list and the
+"           location-list
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-let g:snips_author = 'Eguzki Astiz Lezaun'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -114,6 +116,21 @@ set hls
 set incsearch
 
 """"""""""""""""""""""""""""""
+" => Vundle
+""""""""""""""""""""""""""""""
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/ListToggle'
+
+
+""""""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
 " Really useful!
@@ -145,9 +162,8 @@ function! VisualSearch(direction) range
 endfunction
 
 """"""""""""""""""""""""""""""
-" => clang plugin
+" => YouCompleteMe
 """"""""""""""""""""""""""""""
-let g:clang_complete_copen = 1
 
 """"""""""""""""""""""""""""""
 " => Minibuffer plugin
@@ -167,7 +183,7 @@ let Tlist_Exit_OnlyWindow = 1
 map <F4> :TlistToggle<cr>
 
 " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
-inoremap <Nul> <C-x><C-o>
+"inoremap <Nul> <C-x><C-o>
 inoremap <expr> j   pumvisible()?"\<C-N>":"j"
 inoremap <expr> k   pumvisible()?"\<C-P>":"k"
 
@@ -204,6 +220,17 @@ au! Syntax json source ~/.vim/syntax/json.vim
 autocmd FileType json set equalprg=json_reformat
 autocmd FileType json set makeprg=jsonval\ %
 autocmd FileType json set errorformat=%E%f:\ %m\ at\ line\ %l,%-G%.%#
+
+""""""""""""""""""""""""""""""
+" => Syntastic
+""""""""""""""""""""""""""""""
+let g:syntastic_always_populate_loc_list = 1
+
+""""""""""""""""""""""""""""""
+" => ListToogle
+""""""""""""""""""""""""""""""
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
 
 """"""""""""""""""""""""""""""
 " => Misc
