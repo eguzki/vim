@@ -168,6 +168,7 @@ endfunction
 """"""""""""""""""""""""""""""
 " => YouCompleteMe
 """"""""""""""""""""""""""""""
+let g:EclimCompletionMethod = 'omnifunc'
 
 """"""""""""""""""""""""""""""
 " => Minibuffer plugin
@@ -202,11 +203,6 @@ set wildignore+=*.o,*.obj,.git,.hg,*.pyc
 noremap <leader>y :CommandTFlush<cr>
 
 """"""""""""""""""""""""""""""
-" => Java
-""""""""""""""""""""""""""""""
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-
-""""""""""""""""""""""""""""""
 " => Syntastic
 """"""""""""""""""""""""""""""
 let g:syntastic_always_populate_loc_list = 1
@@ -238,6 +234,3 @@ endfunction
 " Key binding \f to clean up file
 nmap <silent> <leader>f <Esc>:call CleanFile()<CR>
 
-" Python Compiler
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
