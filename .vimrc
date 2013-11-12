@@ -132,6 +132,7 @@ Bundle 'wincent/Command-T'
 Bundle 'Valloric/ListToggle'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
+"Bundle 'wakatime/vim-wakatime'
 
 
 """"""""""""""""""""""""""""""
@@ -143,7 +144,6 @@ vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
@@ -168,7 +168,8 @@ endfunction
 """"""""""""""""""""""""""""""
 " => YouCompleteMe
 """"""""""""""""""""""""""""""
-let g:EclimCompletionMethod = 'omnifunc'
+let g:ycm_autoclose_preview_window_after_completion=1
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """"""""""""""""""""""""""""""
 " => Minibuffer plugin
