@@ -132,6 +132,7 @@ Bundle 'wincent/Command-T'
 Bundle 'Valloric/ListToggle'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
+Bundle 'wakatime/vim-wakatime'
 
 
 """"""""""""""""""""""""""""""
@@ -168,7 +169,6 @@ endfunction
 """"""""""""""""""""""""""""""
 " => YouCompleteMe
 """"""""""""""""""""""""""""""
-let g:EclimCompletionMethod = 'omnifunc'
 
 """"""""""""""""""""""""""""""
 " => Minibuffer plugin
@@ -206,6 +206,8 @@ noremap <leader>y :CommandTFlush<cr>
 " => Syntastic
 """"""""""""""""""""""""""""""
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checkers = ['jshint'] 
+let g:syntastic_javascript_jshint_conf = "$HOME/.jshintrc"
 
 """"""""""""""""""""""""""""""
 " => ListToogle
