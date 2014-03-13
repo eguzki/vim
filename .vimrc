@@ -75,9 +75,6 @@ set ignorecase
 " ignore case if search pattern is all lowercase,
 "                   "    case-sensitive otherwise
 set smartcase
-" Enable filetype plugin
-filetype on
-filetype plugin on
 set tags+=$HOME/.vim/tags/stl
 set tags+=$HOME/.vim/tags/c
 "
@@ -108,7 +105,10 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
 set smartindent
+" Enable filetype plugin
 filetype plugin indent on
+" associate *.md with markdown filetype
+au BufRead,BufNewFile *.md set filetype=markdown
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
