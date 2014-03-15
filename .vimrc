@@ -132,7 +132,7 @@ Bundle 'wincent/Command-T'
 Bundle 'Valloric/ListToggle'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'wakatime/vim-wakatime'
+Bundle 'wakatime/vim-wakatime'
 
 
 """"""""""""""""""""""""""""""
