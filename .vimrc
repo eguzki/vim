@@ -54,6 +54,12 @@
 "           A vim plugin for toggling the display of the quickfix list and the
 "           location-list
 "
+"       > Vim-Airline - https://github.com/bling/vim-airline
+"           lean & mean status/tabline for vim that's light as air
+"
+"       > fugitive - https://github.com/tpope/vim-fugitive
+"           fugitive.vim: a Git wrapper
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -82,11 +88,19 @@ set tags+=$HOME/.vim/tags/c
 map <F2> :NERDTreeToggle<CR>
 
 set pastetoggle=<F3>
+
+
+" Hide default status line
+set noshowmode 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Enable syntax hl
 syntax enable 
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
 set gfn=Monospace\ 10
 set shell=/bin/bash
 set encoding=utf8
@@ -133,7 +147,8 @@ Bundle 'Valloric/ListToggle'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wakatime/vim-wakatime'
-
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -215,6 +230,12 @@ let g:syntastic_javascript_jshint_conf = "$HOME/.jshintrc"
 """"""""""""""""""""""""""""""
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
+
+""""""""""""""""""""""""""""""
+" => Vim-Airline
+""""""""""""""""""""""""""""""
+set laststatus=2
+let g:airline_powerline_fonts = 1
 
 """"""""""""""""""""""""""""""
 " => Misc
