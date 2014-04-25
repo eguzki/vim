@@ -56,6 +56,13 @@ eguzki-vim-environment
     "       > ListToggle - https://github.com/Valloric/ListToggle
     "           A vim plugin for toggling the display of the quickfix list and the
     "           location-list
+    "
+    "       > Vim-Airline - https://github.com/bling/vim-airline
+    "           lean & mean status/tabline for vim that's light as air
+    "
+    "       > fugitive - https://github.com/tpope/vim-fugitive
+    "           fugitive.vim: a Git wrapper
+    "
     " "
     " "
     " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
