@@ -224,6 +224,12 @@ noremap <leader>y :CommandTFlush<cr>
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checkers = ['jshint'] 
 let g:syntastic_javascript_jshint_conf = "$HOME/.jshintrc"
+let g:syntastic_python_checkers = ['pylint']
+"Disable annoying pylint mesages
+"   C0103 Invalid constant name
+"   R0903 Too few public methods (Classes aren't meant to just store datas.)
+"   W0141 Used builtin function 'map'|'filter' (Why not? Nonsens!)
+let g:syntastic_python_pylint_post_args='--disable=C0103,R0903,W0141'
 
 """"""""""""""""""""""""""""""
 " => ListToogle
