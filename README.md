@@ -63,6 +63,9 @@ eguzki-vim-environment
     "       > fugitive - https://github.com/tpope/vim-fugitive
     "           fugitive.vim: a Git wrapper
     "
+    "       > easy-align - https://github.com/junegunn/vim-easy-align
+    "           A simple, easy-to-use Vim alignment plugin.
+    "
     " "
     " "
     " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

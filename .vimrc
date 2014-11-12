@@ -60,6 +60,9 @@
 "       > fugitive - https://github.com/tpope/vim-fugitive
 "           fugitive.vim: a Git wrapper
 "
+"       > easy-align - https://github.com/junegunn/vim-easy-align
+"           A simple, easy-to-use Vim alignment plugin.
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -149,6 +152,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'wakatime/vim-wakatime'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
+Bundle 'junegunn/vim-easy-align'
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -243,6 +247,15 @@ let g:lt_quickfix_list_toggle_map = '<leader>q'
 """"""""""""""""""""""""""""""
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+""""""""""""""""""""""""""""""
+" => easy-align
+""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+"
+" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
+nmap <Leader>a <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""
 " => Misc
