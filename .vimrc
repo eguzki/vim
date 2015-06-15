@@ -121,7 +121,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
-set smartindent
+set cindent
 " Enable filetype plugin
 filetype plugin indent on
 " associate *.md with markdown filetype
