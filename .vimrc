@@ -70,7 +70,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
 " Sets how many lines of history VIM has to remember
 set history=700
 " Set to auto read when a file is changed from the outside
@@ -122,8 +121,6 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
 set cindent
-" Enable filetype plugin
-filetype plugin indent on
 " associate *.md with markdown filetype
 au BufRead,BufNewFile *.md set filetype=markdown
 set tabstop=4
@@ -136,23 +133,34 @@ set incsearch
 """"""""""""""""""""""""""""""
 " => Vundle
 """"""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/syntastic'
-Bundle 'wincent/Command-T'
-Bundle 'Valloric/ListToggle'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-Bundle 'wakatime/vim-wakatime'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'junegunn/vim-easy-align'
+Plugin 'gmarik/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/syntastic'
+Plugin 'wincent/Command-T'
+Plugin 'Valloric/ListToggle'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/vim-easy-align'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+" "filetype plugin on
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
