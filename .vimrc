@@ -11,7 +11,7 @@
 "    -> Text, tab and indent related
 "    -> Visual mode related
 "
-" Plugins_Included: 
+" Plugins_Included:
 "
 "       > Vundle - https://github.com/gmarik/vundle
 "           Vundle is short for Vim bundle and is a Vim plugin manager.
@@ -25,11 +25,11 @@
 "       > minibufexpl.vim - http://www.vim.org/scripts/script.php?script_id=159
 "           Makes it easy to get an overview of buffers:
 "            info -> :e ~/.vim_runtime/plugin/minibufexpl.vim
-" 
+"
 "       > surround.vim - https://github.com/tpope/vim-surround
 "           Makes it easy to work with surrounding text:
 "            info -> :help surround
-" 
+"
 "       > YouCompleteMe - https://github.com/Valloric/YouCompleteMe
 "           Autocomplete Python/Java/C/C++ code
 "
@@ -44,7 +44,7 @@
 "
 "       > Command-T - https://github.com/wincent/Command-T
 "            Extremely fast, intuitive mechanism for opening files with a minimal number of keystrokes
-"            info -> :help command-t 
+"            info -> :help command-t
 "
 "       > TagList - http://www.vim.org/scripts/script.php?script_id=273
 "            Overview of the structure of source code files and allows you to efficiently browse through source code files
@@ -62,6 +62,9 @@
 "
 "       > easy-align - https://github.com/junegunn/vim-easy-align
 "           A simple, easy-to-use Vim alignment plugin.
+"
+"       > Zenburn - https://github.com/jnurmine/Zenburn
+"           Terminal mode color schemes
 "
 " "
 " "
@@ -93,19 +96,10 @@ set pastetoggle=<F3>
 
 
 " Hide default status line
-set noshowmode 
+set noshowmode
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Enable syntax hl
-syntax enable 
-"if $COLORTERM == 'gnome-terminal'
-"    set t_Co=256
-"endif
-set gfn=Monospace\ 10
 set shell=/bin/bash
-set encoding=utf8
+set encoding=utf-8
 set ffs=unix,dos,mac "Default file types
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,7 +135,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
@@ -156,11 +150,24 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'jnurmine/Zenburn'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " "filetype plugin on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Enable syntax hl
+syntax enable
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+colors zenburn
+
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -234,7 +241,7 @@ noremap <leader>y :CommandTFlush<cr>
 " => Syntastic
 """"""""""""""""""""""""""""""
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['jshint'] 
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_jshint_args = '--config $HOME/.jshintrc'
 let g:syntastic_python_checkers = ['pylint']
 "Disable annoying pylint mesages
@@ -255,6 +262,7 @@ let g:lt_quickfix_list_toggle_map = '<leader>q'
 """"""""""""""""""""""""""""""
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""
 " => easy-align
