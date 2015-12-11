@@ -28,11 +28,11 @@ eguzki-vim-environment
     "       > minibufexpl.vim - http://www.vim.org/scripts/script.php?script_id=159
     "           Makes it easy to get an overview of buffers:
     "            info -> :e ~/.vim_runtime/plugin/minibufexpl.vim
-    " 
+    "
     "       > surround.vim - https://github.com/tpope/vim-surround
     "           Makes it easy to work with surrounding text:
     "            info -> :help surround
-    " 
+    "
     "       > YouCompleteMe - https://github.com/Valloric/YouCompleteMe
     "           Autocomplete Python/Java/C/C++ code
     "
@@ -47,7 +47,7 @@ eguzki-vim-environment
     "
     "       > Command-T - https://github.com/wincent/Command-T
     "            Extremely fast, intuitive mechanism for opening files with a minimal number of keystrokes
-    "            info -> :help command-t 
+    "            info -> :help command-t
     "
     "       > TagList - http://www.vim.org/scripts/script.php?script_id=273
     "            Overview of the structure of source code files and allows you to efficiently browse through source code files
@@ -65,6 +65,12 @@ eguzki-vim-environment
     "
     "       > easy-align - https://github.com/junegunn/vim-easy-align
     "           A simple, easy-to-use Vim alignment plugin.
+    "
+    "       > Zenburn - https://github.com/jnurmine/Zenburn
+    "           Terminal mode color schemes
+    "
+    "       > vim-python-pep8-indent - https://github.com/hynek/vim-python-pep8-indent
+    "           indentation behavior to comply with PEP8
     "
     " "
     " "
