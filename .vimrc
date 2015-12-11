@@ -57,14 +57,14 @@
 "       > Vim-Airline - https://github.com/bling/vim-airline
 "           lean & mean status/tabline for vim that's light as air
 "
-"       > fugitive - https://github.com/tpope/vim-fugitive
-"           fugitive.vim: a Git wrapper
-"
 "       > easy-align - https://github.com/junegunn/vim-easy-align
 "           A simple, easy-to-use Vim alignment plugin.
 "
 "       > Zenburn - https://github.com/jnurmine/Zenburn
 "           Terminal mode color schemes
+"
+"       > vim-python-pep8-indent - https://github.com/hynek/vim-python-pep8-indent
+"           indentation behavior to comply with PEP8
 "
 " "
 " "
@@ -148,9 +148,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jnurmine/Zenburn'
+Plugin 'hynek/vim-python-pep8-indent'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
