@@ -66,6 +66,9 @@
 "       > vim-python-pep8-indent - https://github.com/hynek/vim-python-pep8-indent
 "           indentation behavior to comply with PEP8
 "
+"       > vim-go - https://github.com/fatih/vim-go
+"           Go (golang) support for Vim
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,6 +154,7 @@ Plugin 'bling/vim-airline'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'jnurmine/Zenburn'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -294,3 +298,12 @@ endfunction
 " Key binding \f to clean up file
 nmap <silent> <leader>f <Esc>:call CleanFile()<CR>
 
+""""""""""""""""""""""""""""""
+" => Vim-Go
+""""""""""""""""""""""""""""""
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_bin_path = expand("~/.gotools")
