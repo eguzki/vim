@@ -254,6 +254,8 @@ let g:syntastic_python_checkers = ['pylint']
 "   W0141 Used builtin function 'map'|'filter' (Why not? Nonsens!)
 "   W0142 Used * or ** magic (Why not? Nonsens!)
 let g:syntastic_python_pylint_post_args='--disable=C0103,R0903,W0141,W0142'
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 """"""""""""""""""""""""""""""
 " => ListToogle
@@ -307,3 +309,4 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_bin_path = expand("~/.gotools")
+let g:go_autodetect_gopath = 0
