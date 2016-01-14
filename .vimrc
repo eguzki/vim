@@ -155,6 +155,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'jnurmine/Zenburn'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -310,3 +311,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_bin_path = expand("~/.gotools")
 let g:go_autodetect_gopath = 0
+
+""""""""""""""""""""""""""""""
+" => tagbar
+""""""""""""""""""""""""""""""
+nmap <F8> :TagbarToggle<CR>
