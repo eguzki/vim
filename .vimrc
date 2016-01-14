@@ -69,6 +69,9 @@
 "       > vim-go - https://github.com/fatih/vim-go
 "           Go (golang) support for Vim
 "
+"       > tagbar - https://github.com/majutsushi/tagbar
+"           displays tags in a window, ordered by scope
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -311,6 +314,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_bin_path = expand("~/.gotools")
 let g:go_autodetect_gopath = 0
+nmap <F5> :GoDef<CR>
 
 """"""""""""""""""""""""""""""
 " => tagbar
