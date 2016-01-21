@@ -72,6 +72,12 @@ eguzki-vim-environment
     "       > vim-python-pep8-indent - https://github.com/hynek/vim-python-pep8-indent
     "           indentation behavior to comply with PEP8
     "
+    "       > vim-go - https://github.com/fatih/vim-go
+    "           Go (golang) support for Vim
+    "
+    "       > tagbar - https://github.com/majutsushi/tagbar
+    "           displays tags in a window, ordered by scope
+    "
     " "
     " "
     " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
