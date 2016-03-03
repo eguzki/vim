@@ -78,6 +78,9 @@ eguzki-vim-environment
     "       > tagbar - https://github.com/majutsushi/tagbar
     "           displays tags in a window, ordered by scope
     "
+    "       > Easygrep - https://github.com/dkprice/vim-easygrep
+    "           Fast and Easy Find and Replace Across Multiple Files
+    "
     " "
     " "
     " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
