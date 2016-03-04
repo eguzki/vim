@@ -294,3 +294,12 @@ nmap <F5> :GoDef<CR>
 " => tagbar
 """"""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
+
+
+""""""""""""""""""""""""""""""
+" => Easygrep
+""""""""""""""""""""""""""""""
+let g:EasyGrepRecursive = 1
+" use system grep
+let g:EasyGrepCommand = 1
+let g:EasyGrepFilesToExclude = ".git,node_modules"
