@@ -111,6 +111,10 @@ set shell=/bin/bash
 set encoding=utf-8
 set ffs=unix,dos,mac "Default file types
 
+" toggling the cursorline
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
