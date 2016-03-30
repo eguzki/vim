@@ -317,6 +317,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_bin_path = expand("~/.gotools")
 let g:go_autodetect_gopath = 0
+" disable fmt on save
+let g:go_fmt_autosave = 0
 nmap <F5> :GoDef<CR>
 
 """"""""""""""""""""""""""""""
@@ -331,4 +333,4 @@ nmap <F8> :TagbarToggle<CR>
 let g:EasyGrepRecursive = 1
 " use system grep
 let g:EasyGrepCommand = 1
-let g:EasyGrepFilesToExclude = ".git,node_modules"
+let g:EasyGrepFilesToExclude = ".git,node_modules,build"
