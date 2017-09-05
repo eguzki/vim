@@ -75,6 +75,9 @@
 "       > Easygrep - https://github.com/dkprice/vim-easygrep
 "           Fast and Easy Find and Replace Across Multiple Files
 "
+"       > vim-gitgutter - https://github.com/airblade/vim-gitgutter
+"           shows a git diff in the 'gutter' (sign column)
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -192,7 +195,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'dkprice/vim-easygrep'
-
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -254,7 +257,7 @@ noremap <leader>y :CommandTFlush<cr>
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_jshint_args = '--config $HOME/.jshintrc'
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pylint3']
 "Disable annoying pylint mesages
 "   C0103 Invalid constant name
 "   R0903 Too few public methods (Classes aren't meant to just store datas.)
