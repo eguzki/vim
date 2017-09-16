@@ -62,6 +62,13 @@
 "
 "       > vim-fugitive - https://github.com/tpope/vim-fugitive
 "           Fugitive is the premier Vim plugin for Git
+"
+"       > vim-go - https://github.com/fatih/vim-go
+"           Go (golang) support for Vim
+"
+"       > tagbar - https://github.com/preservim/tagbar
+"           displays tags in a window, ordered by scope
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,9 +118,9 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set smartindent
 set autoindent
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set showmatch
 set hls
 set incsearch
@@ -170,6 +177,8 @@ Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go'
+Plug 'preservim/tagbar'
 
 call plug#end()
 
@@ -199,6 +208,8 @@ nnoremap <silent> <C-f> :Files<CR>
 """"""""""""""""""""""""""""""
 " => Syntastic
 """"""""""""""""""""""""""""""
+let g:syntastic_go_checkers = ['go', 'gofmt', 'golangci_lint', 'golint']
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -215,8 +226,8 @@ let g:lt_quickfix_list_toggle_map = '<leader>q'
 " => Vim-Airline
 """"""""""""""""""""""""""""""
 set laststatus=2
-let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#skip_indent_check_ft = {'go': ['mixed-indent-file']}
 
 """"""""""""""""""""""""""""""
 " => easy-align
@@ -238,11 +249,7 @@ function! RemoveTrailingSpaces()
     %s/\s\+$//e
 endfunction
 
-function! ConvertTabsToSpaces()
-    %retab
-endfunction
 function! CleanFile()
-    call ConvertTabsToSpaces()
     call RemoveTrailingSpaces()
 endfunction
 " Key binding \f to clean up file
@@ -271,3 +278,53 @@ vnoremap <Leader>/ y:Ack! <C-r>=fnameescape(@")<CR><CR>
 """"""""""""""""""""""""""""""
 let g:indentLine_setColors = 0
 let g:indentLine_char = '⦙'
+
+""""""""""""""""""""""""""""""
+" => vim-go
+""""""""""""""""""""""""""""""
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_bin_path = expand("~/.gotools")
+let g:go_gotags_bin = expand("~/.gotools/gotags")
+let g:go_autodetect_gopath = 0
+let g:go_fmt_autosave = 1
+let g:go_auto_sameids = 1
+
+""""""""""""""""""""""""""""""
+" => tagbar
+""""""""""""""""""""""""""""""
+nmap <F4> :TagbarToggle<CR>
+let g:tagbar_type_go = {
+  \ 'ctagstype' : 'go',
+  \ 'kinds'     : [
+    \ 'p:package',
+    \ 'i:imports:1',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+    \ 't' : 'ctype',
+    \ 'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+  \ },
+  \ 'ctagsbin'  : expand(g:go_gotags_bin),
+  \ 'ctagsargs' : '-sort -silent'
+\ }
