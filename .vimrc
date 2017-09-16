@@ -62,6 +62,13 @@
 "
 "       > vim-fugitive - https://github.com/tpope/vim-fugitive
 "           Fugitive is the premier Vim plugin for Git
+"
+"       > vim-ruby - https://github.com/vim-ruby/vim-ruby
+"           Vim/Ruby Configuration Files
+"
+"       > endwise - https://github.com/tpope/vim-endwise
+"           Helps to end certain structures automatically
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -178,6 +185,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -208,6 +217,7 @@ nnoremap <silent> <C-f> :Files<CR>
 """"""""""""""""""""""""""""""
 " => Syntastic
 """"""""""""""""""""""""""""""
+let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -280,3 +290,10 @@ vnoremap <Leader>/ y:Ack! <C-r>=fnameescape(@")<CR><CR>
 """"""""""""""""""""""""""""""
 let g:indentLine_setColors = 0
 let g:indentLine_char = '⦙'
+
+""""""""""""""""""""""""""""""
+" => vim-ruby
+""""""""""""""""""""""""""""""
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_load_gemfile = 1
