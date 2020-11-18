@@ -22,16 +22,9 @@
 "       > EasyMotion - https://github.com/Lokaltog/vim-easymotion
 "           EasyMotion provides a much simpler way to use some motions in vim.
 "
-"       > minibufexpl.vim - http://www.vim.org/scripts/script.php?script_id=159
-"           Makes it easy to get an overview of buffers:
-"            info -> :e ~/.vim_runtime/plugin/minibufexpl.vim
-"
 "       > surround.vim - https://github.com/tpope/vim-surround
 "           Makes it easy to work with surrounding text:
 "            info -> :help surround
-"
-"       > YouCompleteMe - https://github.com/Valloric/YouCompleteMe
-"           Autocomplete Python/Java/C/C++ code
 "
 "       > Syntastic - https://github.com/scrooloose/syntastic
 "           Syntastic is a syntax checking plugin that runs files through
@@ -39,16 +32,9 @@
 "           user
 "           info -> :help syntastic-checker-options
 "
-"       > a.vim - http://www.vim.org/scripts/script.php?script_id=31
-"           Alternate Files quickly (.c --> .h etc) ]
-"
 "       > Command-T - https://github.com/wincent/Command-T
 "            Extremely fast, intuitive mechanism for opening files with a minimal number of keystrokes
 "            info -> :help command-t
-"
-"       > TagList - http://www.vim.org/scripts/script.php?script_id=273
-"            Overview of the structure of source code files and allows you to efficiently browse through source code files
-"            info -> :help taglist
 "
 "       > ListToggle - https://github.com/Valloric/ListToggle
 "           A vim plugin for toggling the display of the quickfix list and the
@@ -57,20 +43,11 @@
 "       > Vim-Airline - https://github.com/bling/vim-airline
 "           lean & mean status/tabline for vim that's light as air
 "
-"       > easy-align - https://github.com/junegunn/vim-easy-align
+"       > EasyAlign - https://github.com/junegunn/vim-easy-align
 "           A simple, easy-to-use Vim alignment plugin.
 "
-"       > Zenburn - https://github.com/jnurmine/Zenburn
+"       > nova-vim - https://github.com/trevordmiller/nova-vim
 "           Terminal mode color schemes
-"
-"       > vim-python-pep8-indent - https://github.com/hynek/vim-python-pep8-indent
-"           indentation behavior to comply with PEP8
-"
-"       > vim-go - https://github.com/fatih/vim-go
-"           Go (golang) support for Vim
-"
-"       > tagbar - https://github.com/majutsushi/tagbar
-"           displays tags in a window, ordered by scope
 "
 "       > Easygrep - https://github.com/dkprice/vim-easygrep
 "           Fast and Easy Find and Replace Across Multiple Files
@@ -98,9 +75,6 @@ set ignorecase
 " ignore case if search pattern is all lowercase,
 "                   "    case-sensitive otherwise
 set smartcase
-set tags+=$HOME/.vim/tags/stl
-set tags+=$HOME/.vim/tags/c
-"
 
 map <F2> :NERDTreeToggle<CR>
 
@@ -129,16 +103,28 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set smartindent
 set autoindent
-set cindent
-" associate *.md with markdown filetype
-au BufRead,BufNewFile *.md set filetype=markdown
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set showmatch
 set hls
 set incsearch
+set colorcolumn=100
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" associate *.md with markdown filetype
+au BufRead,BufNewFile *.md set filetype=markdown
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Yaml
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" associate *.yaml|yml with yaml filetype
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mode related
@@ -180,20 +166,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'wincent/Command-T'
 Plugin 'Valloric/ListToggle'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'wakatime/vim-wakatime'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'jnurmine/Zenburn'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'fatih/vim-go'
-Plugin 'majutsushi/tagbar'
+Plugin 'trevordmiller/nova-vim'
+Plugin 'wakatime/vim-wakatime'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'airblade/vim-gitgutter'
 
@@ -211,34 +193,7 @@ syntax enable
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
-colors zenburn
-
-""""""""""""""""""""""""""""""
-" => YouCompleteMe
-""""""""""""""""""""""""""""""
-let g:ycm_autoclose_preview_window_after_completion=1
-nnoremap <F6> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-""""""""""""""""""""""""""""""
-" => Minibuffer plugin
-""""""""""""""""""""""""""""""
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
-""""""""""""""""""""""""""""""
-" => TagList
-""""""""""""""""""""""""""""""
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Use_Right_Window=1
-let Tlist_WinWidth=30
-let Tlist_Exit_OnlyWindow = 1
-map <F4> :TlistToggle<cr>
-
-" build tags of your own project with Ctrl-F12
-map <C-F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q --language-force=C++ --exclude=tags .<CR>
-map <C-F11> :!ctags -R --fields=+iaS --extra=+q .<CR>
+colorscheme nova
 
 """"""""""""""""""""""""""""""
 " => Command-T (needs to be compiled with ruby)
@@ -255,21 +210,13 @@ noremap <leader>y :CommandTFlush<cr>
 " => Syntastic
 """"""""""""""""""""""""""""""
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_jshint_args = '--config $HOME/.jshintrc'
-let g:syntastic_python_checkers = ['pylint3']
-"Disable annoying pylint mesages
-"   C0103 Invalid constant name
-"   R0903 Too few public methods (Classes aren't meant to just store datas.)
-"   W0141 Used builtin function 'map'|'filter' (Why not? Nonsens!)
-"   W0142 Used * or ** magic (Why not? Nonsens!)
-let g:syntastic_python_pylint_post_args='--disable=C0103,R0903,W0141,W0142'
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_yaml_checkers = ['yamllint']
 
 """"""""""""""""""""""""""""""
-" => ListToogle
+" => ListToggle
 """"""""""""""""""""""""""""""
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
@@ -284,11 +231,11 @@ let g:airline#extensions#tabline#enabled = 1
 """"""""""""""""""""""""""""""
 " => easy-align
 """"""""""""""""""""""""""""""
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-"
-" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
-nmap <Leader>a <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""
 " => Misc
@@ -312,29 +259,9 @@ endfunction
 nmap <silent> <leader>f <Esc>:call CleanFile()<CR>
 
 """"""""""""""""""""""""""""""
-" => Vim-Go
-""""""""""""""""""""""""""""""
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_bin_path = expand("~/.gotools")
-let g:go_autodetect_gopath = 0
-" disable fmt on save
-let g:go_fmt_autosave = 0
-nmap <F5> :GoDef<CR>
-
-""""""""""""""""""""""""""""""
-" => tagbar
-""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
-
-
-""""""""""""""""""""""""""""""
 " => Easygrep
 """"""""""""""""""""""""""""""
 let g:EasyGrepRecursive = 1
 " use system grep
 let g:EasyGrepCommand = 1
-let g:EasyGrepFilesToExclude = ".git,node_modules,build"
+let g:EasyGrepFilesToExclude = ".git,build"
