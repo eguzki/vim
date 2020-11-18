@@ -266,6 +266,7 @@ let g:syntastic_python_checkers = ['pylint3']
 let g:syntastic_python_pylint_post_args='--disable=C0103,R0903,W0141,W0142'
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_yaml_checkers = ['yamllint']
 
 """"""""""""""""""""""""""""""
 " => ListToogle
