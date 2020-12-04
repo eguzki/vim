@@ -49,8 +49,8 @@
 "       > nova-vim - https://github.com/trevordmiller/nova-vim
 "           Terminal mode color schemes
 "
-"       > Easygrep - https://github.com/dkprice/vim-easygrep
-"           Fast and Easy Find and Replace Across Multiple Files
+"       > ack - https://github.com/mileszs/ack.vim
+"           Run your favorite search tool from Vim, with an enhanced results list
 "
 "       > vim-gitgutter - https://github.com/airblade/vim-gitgutter
 "           shows a git diff in the 'gutter' (sign column)
@@ -176,7 +176,7 @@ Plugin 'bling/vim-airline'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'trevordmiller/nova-vim'
 Plugin 'wakatime/vim-wakatime'
-Plugin 'dkprice/vim-easygrep'
+Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
@@ -259,9 +259,15 @@ endfunction
 nmap <silent> <leader>f <Esc>:call CleanFile()<CR>
 
 """"""""""""""""""""""""""""""
-" => Easygrep
+" => Ack
 """"""""""""""""""""""""""""""
-let g:EasyGrepRecursive = 1
-" use system grep
-let g:EasyGrepCommand = 1
-let g:EasyGrepFilesToExclude = ".git,build"
+" Options include:
+" --vimgrep -> Needed to parse the ag response properly for ack.vim
+" --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
+let g:ackprg = 'ag --vimgrep --smart-case'
+" Any empty ack search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+" Don't jump to first match
+cnoreabbrev Ack Ack!
+" Maps <leader>/ so we're ready to type the search keyword
+nnoremap <Leader>/ :Ack!<Space>
