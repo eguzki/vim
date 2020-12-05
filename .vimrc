@@ -271,3 +271,6 @@ let g:ack_use_cword_for_empty_search = 1
 cnoreabbrev Ack Ack!
 " Maps <leader>/ so we're ready to type the search keyword
 nnoremap <Leader>/ :Ack!<Space>
+" search for a current visual selection
+" This solution uses the <C-r>= trick that allows you to enter a kind of second-level command-line, which allows you to enter any vimscript expression, which is then evaluated, and the result is stringified and pasted onto the (original, first-level) command-line where the cursor is.
+vnoremap <Leader>/ y:Ack! <C-r>=fnameescape(@")<CR><CR>
