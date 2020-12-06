@@ -32,9 +32,8 @@
 "           user
 "           info -> :help syntastic-checker-options
 "
-"       > Command-T - https://github.com/wincent/Command-T
-"            Extremely fast, intuitive mechanism for opening files with a minimal number of keystrokes
-"            info -> :help command-t
+"       > fzf vim - https://github.com/junegunn/fzf.vim
+"           fzf is a general-purpose command-line fuzzy finder.
 "
 "       > ListToggle - https://github.com/Valloric/ListToggle
 "           A vim plugin for toggling the display of the quickfix list and the
@@ -145,7 +144,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
-Plugin 'wincent/Command-T'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'Valloric/ListToggle'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/vim-easy-align'
@@ -171,15 +171,9 @@ endif
 colorscheme nova
 
 """"""""""""""""""""""""""""""
-" => Command-T (needs to be compiled with ruby)
+" => fzf
 """"""""""""""""""""""""""""""
-let g:CommandTMaxHeight = 25
-" Tab and C-i are linked to focus i don't know why...
-"let g:CommandTToggleFocusMap=['<Tab>']
-let g:CommandTToggleFocusMap=['<C-z>']
-let g:CommandTAcceptSelectionSplitMap=['<C-i>']
-set wildignore+=*.o,*.obj,.git,.hg,*.pyc
-noremap <leader>y :CommandTFlush<cr>
+nnoremap <silent> <C-f> :Files<CR>
 
 """"""""""""""""""""""""""""""
 " => Syntastic
