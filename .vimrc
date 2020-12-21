@@ -112,6 +112,22 @@ set hls
 set incsearch
 set colorcolumn=100
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Visual Search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" http://got-ravings.blogspot.com/2008/07/vim-pr0n-visual-search-mappings.html
+
+function! s:VSetSearch()
+  let temp = @@
+  norm! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
+
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
