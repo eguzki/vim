@@ -249,7 +249,7 @@ nmap <silent> <leader>f <Esc>:call CleanFile()<CR>
 " Options include:
 " --vimgrep -> Needed to parse the ag response properly for ack.vim
 " --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
-let g:ackprg = 'ag --vimgrep --smart-case --hidden'
+let g:ackprg = 'ag --vimgrep --smart-case --hidden --ignore .git'
 " Any empty ack search will search for the work the cursor is on
 let g:ack_use_cword_for_empty_search = 1
 " Don't jump to first match
