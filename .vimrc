@@ -54,6 +54,9 @@
 "       > vim-gitgutter - https://github.com/airblade/vim-gitgutter
 "           shows a git diff in the 'gutter' (sign column)
 "
+"       > indentLine - https://github.com/Yggdroot/indentLine
+"           Displaying thin vertical lines at each indentation level for code indented with spaces
+"
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -169,6 +172,7 @@ Plugin 'trevordmiller/nova-vim'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -259,3 +263,10 @@ nnoremap <Leader>/ :Ack!<Space>
 " search for a current visual selection
 " This solution uses the <C-r>= trick that allows you to enter a kind of second-level command-line, which allows you to enter any vimscript expression, which is then evaluated, and the result is stringified and pasted onto the (original, first-level) command-line where the cursor is.
 vnoremap <Leader>/ y:Ack! <C-r>=fnameescape(@")<CR><CR>
+
+
+""""""""""""""""""""""""""""""
+" => indentLine
+""""""""""""""""""""""""""""""
+let g:indentLine_setColors = 0
+let g:indentLine_char = '⦙'
