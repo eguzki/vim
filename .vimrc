@@ -2,7 +2,7 @@
 " Maintainer: Eguzki Astiz Lezaun
 "
 "
-" Version: 1.6 - Nov 2020
+" Version: 1.7 - Dic 2021
 "
 " Sections:
 "    -> General
@@ -57,6 +57,8 @@
 "       > indentLine - https://github.com/Yggdroot/indentLine
 "           Displaying thin vertical lines at each indentation level for code indented with spaces
 "
+"       > vim-fugitive - https://github.com/tpope/vim-fugitive
+"           Fugitive is the premier Vim plugin for Git
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -81,7 +83,6 @@ set smartcase
 map <F2> :NERDTreeToggle<CR>
 
 set pastetoggle=<F3>
-
 
 " Hide default status line
 set noshowmode
@@ -173,6 +174,7 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
