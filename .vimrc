@@ -2,7 +2,7 @@
 " Maintainer: Eguzki Astiz Lezaun
 "
 "
-" Version: 1.7 - Dic 2021
+" Version: 1.8 - Oct 2023
 "
 " Sections:
 "    -> General
@@ -47,6 +47,9 @@
 "
 "       > nova-vim - https://github.com/trevordmiller/nova-vim
 "           Terminal mode color schemes
+"
+"       > vim-wakatime- https://github.com/wakatime/vim-wakatime
+"           automatic time tracking and metrics generated from your programming activity
 "
 "       > ack - https://github.com/mileszs/ack.vim
 "           Run your favorite search tool from Vim, with an enhanced results list
