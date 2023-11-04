@@ -45,7 +45,7 @@
 "       > EasyAlign - https://github.com/junegunn/vim-easy-align
 "           A simple, easy-to-use Vim alignment plugin.
 "
-"       > nova-vim - https://github.com/trevordmiller/nova-vim
+"       > vim-solarized8 - https://github.com/lifepillar/vim-solarized8
 "           Terminal mode color schemes
 "
 "       > vim-wakatime- https://github.com/wakatime/vim-wakatime
@@ -172,7 +172,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'Valloric/ListToggle'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'trevordmiller/nova-vim'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -193,7 +193,12 @@ syntax enable
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
-colorscheme nova
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Color scheme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
+autocmd vimenter * ++nested colorscheme solarized8_high
 
 """"""""""""""""""""""""""""""
 " => fzf
