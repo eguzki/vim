@@ -62,6 +62,9 @@
 "
 "       > vim-fugitive - https://github.com/tpope/vim-fugitive
 "           Fugitive is the premier Vim plugin for Git
+"
+"       > copilot - https://github.com/github/copilot
+"           GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor.
 " "
 " "
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -178,6 +181,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'tpope/vim-fugitive'
+Plugin 'github/copilot.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
