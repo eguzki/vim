@@ -2,7 +2,7 @@
 " Maintainer: Eguzki Astiz Lezaun
 "
 "
-" Version: 1.8 - Oct 2023
+" Version: 1.9 - Feb 2025
 "
 " Sections:
 "    -> General
@@ -13,8 +13,8 @@
 "
 " Plugins_Included:
 "
-"       > Vundle - https://github.com/gmarik/vundle
-"           Vundle is short for Vim bundle and is a Vim plugin manager.
+"       > Vim-Plug - https://github.com/junegunn/vim-plug
+"           Vim-Plug is a minimalist Vim plugin manager.
 "
 "       > NERD tree - https://github.com/scrooloose/nerdtree
 "           Vundle is short for Vim bundle and is a Vim plugin manager.
@@ -152,48 +152,41 @@ au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 """"""""""""""""""""""""""""""
-" => Vundle
+" => Vim-Plug
 """"""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" List your plugins here
 
-" let Vundle manage Vundle
-" required!
-Plugin 'gmarik/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'Valloric/ListToggle'
+Plug 'bling/vim-airline'
+Plug 'junegunn/vim-easy-align'
+Plug 'lifepillar/vim-solarized8'
+Plug 'wakatime/vim-wakatime'
+Plug 'mileszs/ack.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-fugitive'
+Plug 'github/copilot.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'majutsushi/tagbar'
 
-" Keep Plugin commands between vundle#begin/end.
-Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'Valloric/ListToggle'
-Plugin 'bling/vim-airline'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'mileszs/ack.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-fugitive'
-Plugin 'github/copilot.vim'
+call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" "filetype plugin on
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Enable syntax hl
-syntax enable
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
