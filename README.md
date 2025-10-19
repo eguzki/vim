@@ -10,4 +10,7 @@ Vim Environment
     " "
     " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+> [!NOTE]
+> This vim config has been archived. Please switch to [eguzki/dotfiles](https://github.com/eguzki/dotfiles).
+
 [Check .vimrc](.vimrc)
